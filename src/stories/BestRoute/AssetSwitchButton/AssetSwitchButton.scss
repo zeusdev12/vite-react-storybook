@@ -1,0 +1,29 @@
+.asset-switch-button {
+  cursor: pointer;
+  display: inline-block;
+  background-color: transparent;
+}
+
+.asset-switch-button:active {
+  opacity: 0.5;
+}
+
+.asset-switch-button--disabled {
+  opacity: 0.5;
+  cursor: inherit;
+}
+
+.asset-switch-button--small {
+  width: 30px;
+  height: 30px;
+}
+
+.asset-switch-button--medium {
+  width: 40px;
+  height: 40px;
+}
+
+.asset-switch-button--large {
+  width: 30px;
+  height: 30px;
+}

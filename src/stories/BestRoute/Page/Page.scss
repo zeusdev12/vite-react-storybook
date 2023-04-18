@@ -1,0 +1,33 @@
+section {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 48px 20px;
+  margin: 0 auto;
+  max-width: 600px;
+  color: #333;
+}
+
+.swap-container {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  label {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  .swap-params-box {
+    display: flex;
+    column-gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .action-button {
+    justify-content: center;
+  }
+}
