@@ -40,10 +40,12 @@ export const TextField = ({
 }: TextFieldProps) => {
   const mode = error ? 'textfield--error' : disabled ? 'textfield--disabled' : '';
   return (
-    <input
-      className={['textfield', `textfield--${size}`, mode].join(' ')}
-      disabled={disabled}
-      {...props}
-    />
+    <div className={['textfield', `textfield--${size}`, mode].join(' ')}>
+      <input
+        className={'textfield-input'}
+        disabled={disabled}
+        {...props}
+      />
+    </div>
   );
 };

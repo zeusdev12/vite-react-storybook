@@ -1,32 +1,49 @@
 .textfield {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  border: 0;
-  border-radius: 0.5em;
-  display: inline-block;
-  line-height: 1;
-  outline: none !important;
-  border: 1px solid black;
   box-shadow: 0px 6px 20px -2px rgba(0, 0, 0, 0.2);
   width: fit-content;
+  padding: 10px;
+
+  .textfield-input {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border: 0;
+    border-radius: 0.5em;
+    display: inline-block;
+    line-height: 1;
+    outline: none !important;
+    border: 1px solid black;
+    min-width: 100px;
+  }
+
+  .textfield-input:focus {
+    border-color: blue;
+  }
 }
-.textfield:focus {
-  border-color: blue;
-}
+
 .textfield--error {
-  border-color: red;
+  .textfield-input {
+    border-color: red;
+  }
 }
 .textfield--disabled {
-  border-color: gray;
+  .textfield-input {
+    border-color: gray;
+  }
 }
 .textfield--small {
-  font-size: 12px;
-  padding: 10px 16px;
+  .textfield-input {
+    font-size: 12px;
+    padding: 10px 10px;
+  }
 }
 .textfield--medium {
-  font-size: 14px;
-  padding: 11px 20px;
+  .textfield-input {
+    font-size: 14px;
+    padding: 11px 14px;
+  }
 }
 .textfield--large {
-  font-size: 16px;
-  padding: 12px 24px;
+  .textfield-input {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
 }
