@@ -11,14 +11,19 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@balancer-labs/sdk": "^1.0.5",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@rollup/plugin-commonjs": "^24.1.0",
     "@uniswap/router-sdk": "^1.4.0",
     "@uniswap/sdk-core": "^3.2.2",
     "@uniswap/smart-order-router": "^3.11.1",
     "@uniswap/v3-sdk": "^3.9.0",
-    "ethers": "^6.3.0",
+    "ethers": "^5.7.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup-plugin-polyfill-node": "^0.12.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.4",
@@ -42,5 +47,10 @@
   },
   "engines": {
     "node": ">=16.12.0"
+  },
+  "overrides": {
+    "@balancer-labs/sdk": {
+      "@balancer-labs/sor": "4.1.1-beta.6"
+    }
   }
 }
