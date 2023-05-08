@@ -6,7 +6,7 @@ const sdk = new BalancerSDK({
 });
 
 export const findBalancerBestRoute = async (
-  amountOut: string, 
+  amountIn: string, 
   tokenIn: string,
   tokenInDecimal: number,
   tokenInSymbol: string,

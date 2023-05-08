@@ -13,7 +13,7 @@ const router = new AlphaRouter({
 })
 
 export const findUniswapBestRoute = async (
-  amountOut: string, 
+  amountIn: string, 
   tokenIn: string,
   tokenInDecimal: number,
   tokenInSymbol: string,
@@ -28,15 +28,15 @@ export const findUniswapBestRoute = async (
     type: SwapType.SWAP_ROUTER_02,
   }
 
-  const tokenAmountOut = CurrencyAmount.fromRawAmount(
-    new Token(1, tokenOut, tokenOutDecimal, tokenOutSymbol),
-    amountOut
+  const tokenAmountIn = CurrencyAmount.fromRawAmount(
+    new Token(1, tokenIn, tokenInDecimal, tokenInSymbol),
+    amountIn
   );
 
   const route = await router.route(
-    tokenAmountOut,
-    new Token(1, tokenIn, tokenInDecimal, tokenInSymbol),
-    TradeType.EXACT_OUTPUT,     // promise the amountOut
+    tokenAmountIn,
+    new Token(1, tokenOut, tokenOutDecimal, tokenOutSymbol),
+    TradeType.EXACT_INPUT,     // promise the amountIn
     options
   )
   
