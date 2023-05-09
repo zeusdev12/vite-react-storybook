@@ -13,14 +13,15 @@ export const balancerInit = async () => {
 export const findBalancerBestRoute = async (
   amountIn: string, 
   tokenIn: string,
-  tokenOut: string
+  tokenOut: string,
+  maxPool: number
 ) => {
   const route = await sdk.swaps.findRouteGivenIn({
     tokenIn,
     tokenOut,
     amount: BigNumber.from(amountIn),
     gasPrice: BigNumber.from(0),
-    maxPools: 1
+    maxPools: maxPool
   });
 
   return route;
