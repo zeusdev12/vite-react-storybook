@@ -25,7 +25,7 @@ interface ComboBoxProps {
   /**
    * Callback fired when the item is selected.
    */
-  onChange?: (item: string) => void;
+  onChange: (item: string) => void;
 }
 
 /**
@@ -34,8 +34,8 @@ interface ComboBoxProps {
 export const ComboBox = ({
   disabled = false,
   size = 'medium',
-  value = '',
   options = [],
+  value = '',
   onChange,
   placeholder
 }: ComboBoxProps) => {
@@ -56,8 +56,13 @@ export const ComboBox = ({
 
   const onSelectItem = (value: string) => {
     setQuery(value);
+    onChange(value);
     setListVisible(false);
   }
+
+  useEffect(() => {
+    setQuery(value);
+  }, [value]);
 
   useEffect(() => {
     const handleClickOutside = (event: Event) => {
@@ -79,7 +84,11 @@ export const ComboBox = ({
       <input
         className={'combobox-query'}
         type="text"
-        onChange={e => setQuery(e.target.value)}
+        onChange={e => {
+            setQuery(e.target.value);
+            onChange(e.target.value);
+          }
+        }
         disabled={!options.length || disabled }
         placeholder={placeholder}
         value={query}
