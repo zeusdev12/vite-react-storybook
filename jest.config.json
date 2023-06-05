@@ -1,0 +1,10 @@
+{
+  "testEnvironment": "jsdom",
+  "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.scss$": "jest-scss-transform"
+  },
+  "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+  ]
+}
