@@ -2,9 +2,11 @@
   "testEnvironment": "jsdom",
   "transform": {
       "^.+\\.tsx?$": "ts-jest",
-      "^.+\\.scss$": "jest-scss-transform"
+      "^.+\\.scss$": "jest-scss-transform",
+      "^.+\\.svg$": "jest-transformer-svg"
   },
   "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
+      "@testing-library/jest-dom/extend-expect",
+      "<rootDir>/src/setupTests.ts"
   ]
 }
