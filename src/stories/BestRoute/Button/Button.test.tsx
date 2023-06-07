@@ -1,14 +1,14 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Button } from './Button';
 
-describe('<Toggle />', () => {
-  it('should render OFF by default', () => {
+describe('<Button />', () => {
+  it('should render by default', () => {
     render(<Button label="Test"/>);
 
     expect(screen.getByText(/Test/)).toBeInTheDocument();
   });
 
-  it('should render ON when clicked', () => {
+  it('when clicked', () => {
     render(<Button label="Test"/>);
 
     expect(screen.getByText(/Test/)).toBeInTheDocument();
