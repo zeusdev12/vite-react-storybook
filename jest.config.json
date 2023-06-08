@@ -5,6 +5,9 @@
       "^.+\\.scss$": "jest-scss-transform",
       "^.+\\.svg$": "jest-transformer-svg"
   },
+  "moduleNameMapper": {
+    "\\.(jpg)$": "<rootDir>/mocks/fileMock.js"
+  },
   "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect",
       "<rootDir>/src/setupTests.ts"
