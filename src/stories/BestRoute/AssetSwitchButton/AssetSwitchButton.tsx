@@ -31,7 +31,7 @@ export const AssetSwitchButton = ({
       className={['asset-switch-button', `asset-switch-button--${size}`, mode].join(' ')}
       {...props}
     >
-      <img src={SwapArrow}/>
+      <img alt={'swapArrow'} src={SwapArrow}/>
     </div>
   );
 };
