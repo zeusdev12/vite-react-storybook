@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { TextField } from './TextField'
 
-describe('SwapForm', () => {
+describe('TextField', () => {
   it('renders', () => {
     render(<TextField/>);
 
