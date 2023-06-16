@@ -9,6 +9,7 @@ import { Button } from '../Button/Button';
 
 export const SwapForm = () => {
   const [amount, setAmount] = useState('0');
+  const [swap, setSwap] = useState('Uniswap');
   const [swapFrom, setSwapFrom] = useState('');
   const [swapTo, setSwapTo] = useState('');
   const onChangeAmount = (e: any) => {
@@ -18,6 +19,10 @@ export const SwapForm = () => {
     if (!isNaN(value) || value === '') {
       setAmount(value);
     }
+  }
+
+  const onChangeSwap = (item: string) => {
+    setSwap(item);
   }
 
   const onChangeSwapFrom = (item: string) => {
@@ -35,6 +40,10 @@ export const SwapForm = () => {
 
   return (
     <section className='swap-container'>
+      <div className='swap-params-box'>
+        <label>Select Swap: </label>
+        <ComboBox options={["Uniswap", "Curve", "Balancer"]} value={swap} onChange={onChangeSwap}/>
+      </div>
       <div className='swap-params-box'>
         <label>From Asset: </label>
         <ComboBox options={["USDC", "USDT", "DAI"]} value={swapFrom} onChange={onChangeSwapFrom}/>
