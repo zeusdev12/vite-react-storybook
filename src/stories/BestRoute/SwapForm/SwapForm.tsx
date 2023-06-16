@@ -9,7 +9,7 @@ import { Button } from '../Button/Button';
 
 export const SwapForm = () => {
   const [amount, setAmount] = useState('0');
-  const [swap, setSwap] = useState('Uniswap');
+  const [swap, setSwap] = useState('');
   const [swapFrom, setSwapFrom] = useState('');
   const [swapTo, setSwapTo] = useState('');
   const onChangeAmount = (e: any) => {
