@@ -5,7 +5,9 @@ import { ComboBox } from '../ComboBox/ComboBox';
 import { TextField } from '../TextField/TextField';
 import { AssetSwitchButton } from '../AssetSwitchButton/AssetSwitchButton';
 import { Button } from '../Button/Button';
-
+import { findUniswapBestRoute } from '../../../utils/uniswap';
+import { findBalancerBestRoute } from '../../../utils/balancer';
+import { findCurveBestRoute } from '../../../utils/curve';
 
 export const SwapForm = () => {
   const [amount, setAmount] = useState('0');
@@ -38,6 +40,37 @@ export const SwapForm = () => {
     setSwapTo(swapFrom);
   }
 
+  const handleSwap = () => {
+    if (swap === 'Uniswap') {
+      findUniswapBestRoute(
+        '1000',
+        '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+        6,
+        'USDC',
+        '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+        18,
+        'FRAX'
+      ).then(result => console.log(result));
+    }
+    
+    if (swap === 'Curve') {
+      findCurveBestRoute(
+        '1000',
+        '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+        '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+      ).then(result => console.log(result));
+    }
+
+    if (swap ==='Balancer') {
+      findBalancerBestRoute(
+        '1000000000',
+        '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+        '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+        1
+      ).then(result => console.log(result));
+    }
+  }
+
   return (
     <section className='swap-container'>
       <div className='swap-params-box'>
@@ -60,7 +93,7 @@ export const SwapForm = () => {
         <ComboBox options={["USDC", "USDT", "DAI"]} value={swapTo} onChange={onChangeSwapTo}/>
       </div>
       <div className='swap-params-box action-button'>
-        <Button label='Calculate' primary={true}/>
+        <Button label='Calculate' primary={true} onClick={handleSwap}/>
       </div>
     </section>
   );
