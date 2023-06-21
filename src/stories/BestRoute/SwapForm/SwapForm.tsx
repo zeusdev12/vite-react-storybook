@@ -8,6 +8,8 @@ import { Button } from '../Button/Button';
 import { findUniswapBestRoute } from '../../../utils/uniswap';
 import { findBalancerBestRoute } from '../../../utils/balancer';
 import { findCurveBestRoute } from '../../../utils/curve';
+import { ASSETS } from '../../../utils/constants';
+import { parseUnits } from 'ethers/lib/utils';
 
 export const SwapForm = () => {
   const [amount, setAmount] = useState('0');
@@ -41,31 +43,34 @@ export const SwapForm = () => {
   }
 
   const handleSwap = () => {
+    const fromAssetInfo = ASSETS[swapFrom];
+    const toAssetInfo = ASSETS[swapTo];
+
     if (swap === 'Uniswap') {
       findUniswapBestRoute(
-        '1000',
-        '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-        6,
-        'USDC',
-        '0x853d955aCEf822Db058eb8505911ED77F175b99e',
-        18,
-        'FRAX'
+        amount,
+        fromAssetInfo.address,
+        fromAssetInfo.decimals,
+        swapFrom,
+        toAssetInfo.address,
+        toAssetInfo.decimals,
+        swapTo
       ).then(result => console.log(result));
     }
     
     if (swap === 'Curve') {
       findCurveBestRoute(
-        '1000',
-        '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-        '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+        amount,
+        fromAssetInfo.address,
+        toAssetInfo.address,
       ).then(result => console.log(result));
     }
 
     if (swap ==='Balancer') {
       findBalancerBestRoute(
-        '1000000000',
-        '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-        '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+        parseUnits(amount, fromAssetInfo.decimals).toString(),
+        fromAssetInfo.address,
+        toAssetInfo.address,
         1
       ).then(result => console.log(result));
     }

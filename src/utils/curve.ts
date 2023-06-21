@@ -8,6 +8,7 @@ enum SLIPPAGE_TYPE {
 }
 
 export const curveInit = async () => {
+  console.log("Curve init start");
   await curve.init(
     "Infura",
     { network: "homestead", apiKey: `${import.meta.env.VITE_INFURA_API_KEY}` },
@@ -15,6 +16,7 @@ export const curveInit = async () => {
   );
   await curve.factory.fetchPools();
   await curve.cryptoFactory.fetchPools();
+  console.log("Curve init finished");
 };
 
 export const findCurveBestRoute = async (

@@ -7,7 +7,9 @@ const sdk = new BalancerSDK({
 });
 
 export const balancerInit = async () => {
+  console.log("Balancer init start")
   await sdk.swaps.fetchPools();
+  console.log("Balancer init finished")
 }
 
 export const findBalancerBestRoute = async (
