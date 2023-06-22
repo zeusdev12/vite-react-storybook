@@ -5,7 +5,7 @@ import { Protocol } from "@uniswap/router-sdk";
 import { JsonRpcProvider as Provider } from "@ethersproject/providers";
 import { Pool } from "@uniswap/v3-sdk";
 
-const provider = new Provider(`https://eth-mainnet.alchemyapi.io/v2/${import.meta.env.VITE_ALCHEMY_API_KEY}`, 1);
+const provider = new Provider(`https://eth-mainnet.alchemyapi.io/v2/${process.env.VITE_ALCHEMY_API_KEY}`, 1);
 const user = '0x661fB502E24Deb30e927E39A38Bd2CC44D67339F';
 const router = new AlphaRouter({
   chainId: 1,

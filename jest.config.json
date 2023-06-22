@@ -3,11 +3,15 @@
   "transform": {
       "^.+\\.tsx?$": "ts-jest",
       "^.+\\.scss$": "jest-scss-transform",
-      "^.+\\.svg$": "jest-transformer-svg"
+      "^.+\\.svg$": "jest-transformer-svg",
+      "^.+\\.js$": "babel-jest"
   },
   "moduleNameMapper": {
     "\\.(jpg)$": "<rootDir>/mocks/fileMock.js"
   },
+  "transformIgnorePatterns": [
+    "/node_modules/(?!(@curvefi|ethcall|abi-coder)/.*)"
+  ],
   "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect",
       "<rootDir>/src/setupTests.ts"

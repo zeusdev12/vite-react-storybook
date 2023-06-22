@@ -3,7 +3,7 @@ import { BigNumber } from 'ethers';
 
 const sdk = new BalancerSDK({
   network: 1,
-  rpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${import.meta.env.VITE_ALCHEMY_API_KEY}`
+  rpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${process.env.VITE_ALCHEMY_API_KEY}`
 });
 
 export const balancerInit = async () => {

@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react';
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
+import EnvironmentPlugin from 'vite-plugin-environment';
 import cjs from '@rollup/plugin-commonjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), EnvironmentPlugin('all')],
   build: {
     commonjsOptions: { 
       include: [], 

@@ -11,7 +11,7 @@ export const curveInit = async () => {
   console.log("Curve init start");
   await curve.init(
     "Infura",
-    { network: "homestead", apiKey: `${import.meta.env.VITE_INFURA_API_KEY}` },
+    { network: "homestead", apiKey: `${process.env.VITE_INFURA_API_KEY}` },
     { chainId: 1 }
   );
   await curve.factory.fetchPools();
