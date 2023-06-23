@@ -77,7 +77,7 @@ export const SwapForm = () => {
   }
 
   return (
-    <section className='swap-container'>
+    <div className='swap-container'>
       <div className='swap-params-box'>
         <label>Select Swap: </label>
         <ComboBox options={["Uniswap", "Curve", "Balancer"]} value={swap} onChange={onChangeSwap}/>
@@ -100,6 +100,6 @@ export const SwapForm = () => {
       <div className='swap-params-box action-button'>
         <Button label='Calculate' primary={true} onClick={handleSwap}/>
       </div>
-    </section>
+    </div>
   );
 };

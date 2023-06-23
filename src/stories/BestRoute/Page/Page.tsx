@@ -4,21 +4,21 @@ import './Page.scss';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { SwapForm } from '../SwapForm/SwapForm';
+import { TextArea } from '../TextArea/TextArea';
 
 
 export const Page = () => {
 
   return (
     <article>
-      <header>
-        <Header/>
-      </header>
+      <Header/>
 
-      <SwapForm/>
+      <section>
+        <SwapForm/>
+        <TextArea/>
+      </section>
 
-      <footer>
-        <Footer/>
-      </footer>
+      <Footer/>
     </article>
   );
 };
