@@ -3,7 +3,7 @@ import { SwapForm } from './SwapForm'
 
 describe('SwapForm', () => {
   it('renders', () => {
-    render(<SwapForm/>);
+    render(<SwapForm onChangeResult={() => {}}/>);
 
     expect(screen.getByText(/Select Swap:/)).toBeInTheDocument();
     expect(screen.getByText(/From Asset:/)).toBeInTheDocument();
@@ -15,7 +15,7 @@ describe('SwapForm', () => {
   })
 
   it('swap asset button', async () => {
-    render(<SwapForm/>);
+    render(<SwapForm onChangeResult={() => {}}/>);
 
     const options = screen.getAllByRole('option');
     expect(options[4].textContent).toBe('USDT');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Page.scss';
 import { Header } from '../Header/Header';
@@ -8,14 +8,19 @@ import { TextArea } from '../TextArea/TextArea';
 
 
 export const Page = () => {
+  const [result, setResult] = useState('');
+
+  const onChangeResult = (result: string) => {
+    setResult(result);
+  }
 
   return (
     <article>
       <Header/>
 
       <section>
-        <SwapForm/>
-        <TextArea/>
+        <SwapForm onChangeResult={onChangeResult}/>
+        <TextArea value={result}/>
       </section>
 
       <Footer/>

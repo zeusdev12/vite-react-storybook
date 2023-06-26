@@ -11,7 +11,13 @@ import { findCurveBestRoute } from '../../../utils/curve';
 import { ASSETS } from '../../../utils/constants';
 import { parseUnits } from 'ethers/lib/utils';
 
-export const SwapForm = () => {
+interface SwapFormProps {
+  /**
+   * Callback fired when the swap result is available.
+   */
+  onChangeResult: (result: string) => void;
+}
+export const SwapForm = ({ onChangeResult }: SwapFormProps) => {
   const [amount, setAmount] = useState('0');
   const [swap, setSwap] = useState('');
   const [swapFrom, setSwapFrom] = useState('');
@@ -55,7 +61,7 @@ export const SwapForm = () => {
         toAssetInfo.address,
         toAssetInfo.decimals,
         swapTo
-      ).then(result => console.log(result));
+      ).then(result => onChangeResult(JSON.stringify(result)));
     }
     
     if (swap === 'Curve') {
@@ -63,7 +69,7 @@ export const SwapForm = () => {
         amount,
         fromAssetInfo.address,
         toAssetInfo.address,
-      ).then(result => console.log(result));
+      ).then(result => onChangeResult(JSON.stringify(result)));
     }
 
     if (swap ==='Balancer') {
@@ -72,7 +78,7 @@ export const SwapForm = () => {
         fromAssetInfo.address,
         toAssetInfo.address,
         1
-      ).then(result => console.log(result));
+      ).then(result => onChangeResult(JSON.stringify(result)));
     }
   }
 
