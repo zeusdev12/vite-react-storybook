@@ -3,7 +3,7 @@ import { Page } from './Page'
 
 describe('Page', () => {
   it('renders', () => {
-    render(<Page/>);
+    render(<Page initLoading={false}/>);
 
     expect(screen.getByText(/Find The Best Route Path/)).toBeInTheDocument();
 
@@ -19,7 +19,7 @@ describe('Page', () => {
   })
 
   it('swap asset button', async () => {
-    render(<Page/>);
+    render(<Page initLoading={false}/>);
 
     const options = screen.getAllByRole('option');
     expect(options[4].textContent).toBe('USDT');

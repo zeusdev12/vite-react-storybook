@@ -1,15 +1,21 @@
+import { useEffect } from 'react';
 import './App.css'
 import { Page } from './stories/BestRoute/Page/Page';
-import { balancerInit } from './utils/balancer';
-import { curveInit } from './utils/curve';
+import { useBalancerInit } from './utils/balancer';
+import { useCurveInit } from './utils/curve';
 
 function App() {
-  balancerInit();
-  curveInit();
+  const { balancerInit, loading: balancerLoading } = useBalancerInit();
+  const { curveInit, loading: curveLoading } = useCurveInit();
+
+  useEffect(() => {
+    balancerInit();
+    curveInit();
+  }, []);
 
   return (
     <div className="App">
-      <Page/>
+      <Page initLoading={ balancerLoading || curveLoading }/>
     </div>
   )
 }

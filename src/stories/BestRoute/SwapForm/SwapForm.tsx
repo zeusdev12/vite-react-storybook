@@ -16,8 +16,9 @@ interface SwapFormProps {
    * Callback fired when the swap result is available.
    */
   onChangeResult: (result: string) => void;
+  onLoading: (loading: boolean) => void;
 }
-export const SwapForm = ({ onChangeResult }: SwapFormProps) => {
+export const SwapForm = ({ onChangeResult, onLoading }: SwapFormProps) => {
   const [amount, setAmount] = useState('0');
   const [swap, setSwap] = useState('');
   const [swapFrom, setSwapFrom] = useState('');
@@ -52,6 +53,7 @@ export const SwapForm = ({ onChangeResult }: SwapFormProps) => {
     const fromAssetInfo = ASSETS[swapFrom];
     const toAssetInfo = ASSETS[swapTo];
 
+    onLoading(true);
     if (swap === 'Uniswap') {
       findUniswapBestRoute(
         amount,

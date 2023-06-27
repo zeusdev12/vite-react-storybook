@@ -1,4 +1,5 @@
 import curve from "@curvefi/api";
+import { useCallback, useState } from "react";
 
 enum SLIPPAGE_TYPE {
   DEPOSIT_BONUS,
@@ -7,17 +8,26 @@ enum SLIPPAGE_TYPE {
   SWAP_PRICE_IMPACT,
 }
 
-export const curveInit = async () => {
-  console.log("Curve init start");
-  await curve.init(
-    "Infura",
-    { network: "homestead", apiKey: `${process.env.VITE_INFURA_API_KEY}` },
-    { chainId: 1 }
-  );
-  await curve.factory.fetchPools();
-  await curve.cryptoFactory.fetchPools();
-  console.log("Curve init finished");
-};
+export const useCurveInit = () => {
+  const [loading, setLoading] = useState(true);
+  const curveInit = useCallback( async () => {
+    setLoading(true);
+    console.log("Curve init start");
+    
+    await curve.init(
+      "Infura",
+      { network: "homestead", apiKey: `${process.env.VITE_INFURA_API_KEY}` },
+      { chainId: 1 }
+    );
+    await curve.factory.fetchPools();
+    await curve.cryptoFactory.fetchPools();
+
+    setLoading(false);
+    console.log("Curve init finished");
+  }, []);
+
+  return { curveInit, loading };
+}
 
 export const findCurveBestRoute = async (
   amountIn: string, 
