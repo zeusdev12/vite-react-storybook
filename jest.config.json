@@ -3,6 +3,7 @@
   "transform": {
       "^.+\\.tsx?$": "ts-jest",
       "^.+\\.scss$": "jest-scss-transform",
+      "^.+\\.css$": "jest-transform-css",
       "^.+\\.svg$": "jest-transformer-svg",
       "^.+\\.js$": "babel-jest"
   },
