@@ -4,8 +4,10 @@ import './Page.scss';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { SwapForm } from '../SwapForm/SwapForm';
-import { TextArea } from '../TextArea/TextArea';
 import { GridLoader } from 'react-spinners';
+
+const JSONPretty = require('react-json-pretty');
+const JSONPrettyMon = require('react-json-pretty/dist/monikai');
 
 interface PageProps {
   /**
@@ -40,7 +42,7 @@ export const Page = ({ initLoading }: PageProps) => {
 
       <section>
         <SwapForm onChangeResult={onChangeResult} onLoading={(loading) => setLoading(initLoading || loading)}/>
-        <TextArea value={result}/>
+        <JSONPretty className="json-result" data={result} theme={JSONPrettyMon}/>
       </section>
 
       <Footer/>

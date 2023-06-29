@@ -11,7 +11,7 @@
     "\\.(jpg)$": "<rootDir>/mocks/fileMock.js"
   },
   "transformIgnorePatterns": [
-    "/node_modules/(?!(@curvefi|ethcall|abi-coder)/.*)"
+    "/node_modules/(?!(@curvefi|ethcall|abi-coder|react-json-pretty)/.*)"
   ],
   "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect",

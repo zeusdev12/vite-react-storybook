@@ -11,7 +11,7 @@ describe('Page', () => {
     expect(screen.getByText(/From Asset:/)).toBeInTheDocument();
     expect(screen.getByText(/Amount:/)).toBeInTheDocument();
     expect(screen.getByText(/To Asset:/)).toBeInTheDocument();
-    expect(screen.getAllByRole('textbox')).toHaveLength(5);
+    expect(screen.getAllByRole('textbox')).toHaveLength(4);
     expect(screen.getAllByRole('option')).toHaveLength(9);
     expect(screen.getByRole('button').textContent).toBe('Calculate');
 

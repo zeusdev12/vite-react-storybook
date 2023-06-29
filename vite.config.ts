@@ -5,14 +5,21 @@ import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfil
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import EnvironmentPlugin from 'vite-plugin-environment';
 import cjs from '@rollup/plugin-commonjs';
+import commonjs from 'vite-plugin-commonjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), EnvironmentPlugin('all')],
+  plugins: [
+    react(), 
+    EnvironmentPlugin('all'),
+    commonjs()
+  ],
+  esbuild: {
+  },
   build: {
     commonjsOptions: { 
       include: [], 
-      transformMixedEsModules: true 
+      transformMixedEsModules: true
     },
     rollupOptions: {
       plugins: [
